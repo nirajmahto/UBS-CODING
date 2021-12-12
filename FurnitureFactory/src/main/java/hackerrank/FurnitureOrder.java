@@ -25,12 +25,12 @@ public class FurnitureOrder implements FurnitureOrderInterface {
     }
     
 @override
-    public HashMap<Furniture, Integer> getOrderedFurniture() {
+    public HashMap<Furniture, Integer> getOrdrdFurniture() {
         // TODO: Complete the methodreturn 
 
         return ordrdFurniture;
     }
-
+@override
     public float getTotalOrderCost() {
         // TODO: Complete the method
         
@@ -48,14 +48,14 @@ public class FurnitureOrder implements FurnitureOrderInterface {
 
         return totalOrderCost;
     }
-
+@override
     public int getTypeCount(Furniture type) {
         // TODO: Complete the method
         return ordrdFurniture.getOrDefault(type, 0);
 
  
     }
-
+@override
     public float getTypeCost(Furniture type) {
         // TODO: Complete the method
         if (!ordrdFurniture.containsKey(type)) {
@@ -68,7 +68,7 @@ public class FurnitureOrder implements FurnitureOrderInterface {
 
         return tatalUnits * type.cost();
     }
-
+@override
     public int getTotalOrderQuantity() {
         // TODO: Complete the method
         return ordrdFurniture.values().stream().mapToInt(Integer::intValue).sum();
