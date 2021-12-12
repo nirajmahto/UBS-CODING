@@ -6,7 +6,7 @@ public class FurnitureOrder implements FurnitureOrderInterface {
     /**
      * TODO: Create a map of Furniture items to order quantities
      */
-    private final HashMap<Furniture, Integer> ordrdFurniture;
+    private final HashMap<Furniture, Integer> orderedFurniture;
 
 
     /**
@@ -14,21 +14,21 @@ public class FurnitureOrder implements FurnitureOrderInterface {
      */
     FurnitureOrder() {
         // TODO: Complete the constructor
-      ordrdFurniture = new HashMap<>();
+      orderedFurniture = new HashMap<>();
     }
 @override
     public void addToOrder(final Furniture type, final int furnitureCount) {
         // TODO: Complete the metho
-        ordrdFurniture.put(type, ordrdFurniture.getOrDefault(type, 0) + furnitureCount);
+        orderedFurniture.put(type, orderedFurniture.getOrDefault(type, 0) + furnitureCount);
 
     
     }
     
 @override
-    public HashMap<Furniture, Integer> getOrdrdFurniture() {
+    public HashMap<Furniture, Integer> getOrderedFurniture() {
         // TODO: Complete the methodreturn 
 
-        return ordrdFurniture;
+        return orderedFurniture;
     }
 @override
     public float getTotalOrderCost() {
@@ -36,7 +36,7 @@ public class FurnitureOrder implements FurnitureOrderInterface {
         
         float totalOrderCost = 0.0f;
 
-        for (Entry<Furniture, Integer> e : ordrdFurniture.entrySet()) {
+        for (Entry<Furniture, Integer> e : orderedFurniture.entrySet()) {
 
             int tatalUnits = e.getValue();
 
@@ -51,27 +51,27 @@ public class FurnitureOrder implements FurnitureOrderInterface {
 @override
     public int getTypeCount(Furniture type) {
         // TODO: Complete the method
-        return ordrdFurniture.getOrDefault(type, 0);
+        return orderedFurniture.getOrDefault(type, 0);
 
  
     }
 @override
     public float getTypeCost(Furniture type) {
         // TODO: Complete the method
-        if (!ordrdFurniture.containsKey(type)) {
+        if (!orderedFurniture.containsKey(type)) {
 
             return 0.0f;
 
         }
 
-        int tatalUnits = ordrdFurniture.get(type);
+        int tatalUnits = orderedFurniture.get(type);
 
         return tatalUnits * type.cost();
     }
 @override
     public int getTotalOrderQuantity() {
         // TODO: Complete the method
-        return ordrdFurniture.values().stream().mapToInt(Integer::intValue).sum();
+        return orderedFurniture.values().stream().mapToInt(Integer::intValue).sum();
 }
     }
 
